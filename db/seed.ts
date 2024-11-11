@@ -1,4 +1,4 @@
-import { todos } from './schema/todos'
+import { todos } from './schema'
 import { db } from '.';
 
 (async () => {

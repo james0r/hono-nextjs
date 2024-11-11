@@ -1,7 +1,6 @@
 import React from 'react'
-import Link from 'next/link'
 import { TodosList } from '@/components/TodosList'
-import AddTodo from '@/components/AddTodo'
+import { AddTodo } from '@/components/AddTodo'
 
 const Todos = () => {
   return (

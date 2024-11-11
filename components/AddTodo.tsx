@@ -3,7 +3,7 @@ import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { addTodo } from '@/app/actions'
 
-const AddTodo = () => {
+export const AddTodo = () => {
   return (
     <>
       <div>AddTodo</div>
@@ -19,5 +19,3 @@ const AddTodo = () => {
     </>
   )
 }
-
-export default AddTodo
