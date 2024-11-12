@@ -10,7 +10,7 @@ export const AddTodo = () => {
 
   return (
     <>
-      <div>AddTodo</div>
+      <div>Add a Todo</div>
       <form
         className="flex"
         action={addTodo}

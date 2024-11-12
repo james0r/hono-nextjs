@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { removeItem } from '@/app/actions'
-import { motion, AnimatePresence } from "framer-motion"
 
 const TodoItem = ({
   id,
@@ -15,7 +14,11 @@ const TodoItem = ({
 }) => {
 
   const date = new Date(timestamp)
-  const formattedDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()//prints expected format.
+  const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const formattedDate = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 
   return (
 

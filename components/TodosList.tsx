@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import TodoItem from './TodoItem'
 import { db } from '@/db'
 import { todos } from '@/db/schema'
 import { SelectTodo } from '@/db/schema'
@@ -7,8 +6,6 @@ import TodoItems from './TodoItems'
 
 export const TodosList = async () => {
   const results = await db.select().from(todos) as SelectTodo[]
-
-  console.log(results.length)
 
   return (
     <>
