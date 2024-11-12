@@ -19,7 +19,7 @@ const TodoItem = ({
 
   return (
 
-      <li
+      <div
         id={`todo-${id}`}
         className="py-3 sm:py-4"
       >
@@ -39,7 +39,7 @@ const TodoItem = ({
             </form>
           </div>
         </div>
-      </li>
+      </div>
   )
 }
 

@@ -17,7 +17,7 @@ const TodoItems = ({ items }: any) => {
       <AnimatePresence>
         {
           todos.map((todo: any, index: number) => (
-            <motion.div
+            <motion.li
               key={index}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -29,7 +29,7 @@ const TodoItems = ({ items }: any) => {
                 content={todo.content}
                 timestamp={todo.timestamp}
               />
-            </motion.div>
+            </motion.li>
           ))
         }
       </AnimatePresence>
