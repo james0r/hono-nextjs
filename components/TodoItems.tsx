@@ -3,15 +3,20 @@
 import React from 'react'
 import TodoItem from './TodoItem'
 import { motion, AnimatePresence } from "framer-motion"
+import { todos } from '../db/schema'
 
 const TodoItems = ({ items }: any) => {
+  const [todos, setTodos] = React.useState([])
+
+  React.useEffect(() => {
+    setTodos(items)
+  }, [items])
+
   return (
     <>
-      {
-      items.map((todo: any, index: number) => (
-        <AnimatePresence key={index}>
-          {
-            todo && (
+      <AnimatePresence>
+        {
+          todos.map((todo: any, index: number) => (
             <motion.div
               key={index}
               initial={{ opacity: 0 }}
@@ -19,17 +24,15 @@ const TodoItems = ({ items }: any) => {
               exit={{ opacity: 0 }}
             >
               <TodoItem
-              key={index}
-              id={todo.id}
-              content={todo.content}
-              timestamp={todo.timestamp}
+                key={index}
+                id={todo.id}
+                content={todo.content}
+                timestamp={todo.timestamp}
               />
             </motion.div>
-            )
-          }
-        </AnimatePresence>
-      ))
-      }
+          ))
+        }
+      </AnimatePresence>
     </>
   )
 }
