@@ -2,17 +2,17 @@ import React from 'react'
 import { TodosList } from '@/components/TodosList'
 import { AddTodo } from '@/components/AddTodo'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
-
 const Todos = async () => {
   const response = await fetch('https://icanhazdadjoke.com', {
     headers: {
       'Accept': 'application/json'
-    }
+    },
+    cache: 'no-store'
   })
 
-  const vietnamTimeReponse = await fetch('http://worldtimeapi.org/api/timezone/Asia/Ho_Chi_Minh')
+  const vietnamTimeReponse = await fetch('http://worldtimeapi.org/api/timezone/Asia/Ho_Chi_Minh',{
+    cache: 'no-store'
+  })
 
   const { joke } = await response.json()
 
