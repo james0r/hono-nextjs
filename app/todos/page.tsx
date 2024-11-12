@@ -3,6 +3,7 @@ import { TodosList } from '@/components/TodosList'
 import { AddTodo } from '@/components/AddTodo'
 
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 const Todos = async () => {
   const response = await fetch('https://icanhazdadjoke.com', {
