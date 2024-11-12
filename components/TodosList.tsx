@@ -3,6 +3,7 @@ import TodoItem from './TodoItem'
 import { db } from '@/db'
 import { todos } from '@/db/schema'
 import { SelectTodo } from '@/db/schema'
+import { motion, AnimatePresence } from "framer-motion"
 
 export const TodosList = async () => {
   const results = await db.select().from(todos) as SelectTodo[]
@@ -18,12 +19,12 @@ export const TodosList = async () => {
             className="divide-y divide-gray-200 dark:divide-gray-700"
           >
             {results.map((todo: any) => (
-              <TodoItem
-                key={todo.id}
-                id={todo.id}
-                content={todo.content}
-                timestamp={todo.timestamp}
-              />
+                <TodoItem
+                  key={todo.id}
+                  id={todo.id}
+                  content={todo.content}
+                  timestamp={todo.timestamp}
+                />
             ))}
           </ul>
         </div>

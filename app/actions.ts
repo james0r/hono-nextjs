@@ -5,10 +5,6 @@ import { todos } from '@/db/schema'
 import {eq} from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 
-type FormState = {
-  message: string
-}
-
 export const addTodo = async (formData: FormData) => {
   const content = formData.get('content') as string;
   const timestamp = new Date().toISOString();
