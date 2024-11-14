@@ -1,6 +1,7 @@
 import React from 'react'
 import { TodosList } from '@/components/TodosList'
 import { AddTodo } from '@/components/AddTodo'
+import TimeByTimezone from '@/components/TimeByTimezone'
 
 const Todos = async () => {
   const response = await fetch('https://icanhazdadjoke.com', {
@@ -10,22 +11,7 @@ const Todos = async () => {
     cache: 'no-store'
   })
 
-  const vietnamTimeReponse = await fetch('http://worldtimeapi.org/api/timezone/Asia/Ho_Chi_Minh',{
-    cache: 'no-store'
-  })
-
   const { joke } = await response.json()
-
-  const { datetime } = await vietnamTimeReponse.json()
-
-  const date = new Date(datetime)
-
-  // Format the date to a human-readable string
-  const readableDate = date.toLocaleString('en-US', {
-    timeZone: 'Asia/Bangkok' // This matches the UTC+7 timezone
-  })
-
-  console.log(readableDate)
 
   return (
     <>
@@ -35,7 +21,7 @@ const Todos = async () => {
         <h2>Joke</h2>
         <p>{joke}</p>
         <h2>Vietnam Time</h2>
-        <p>{readableDate}</p>
+        <TimeByTimezone timezone="Asia/Ho_Chi_Minh" />
       </div>
     </>
   )
